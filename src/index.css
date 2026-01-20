@@ -13,6 +13,7 @@
 
 html {
     min-height: 100%;
+    background-color: #0a0014;
     background-image:
             radial-gradient(circle at 40% 30%, rgba(36, 24, 42, 0.6), rgba(10, 0, 15, 1) 70%),
             radial-gradient(circle at 70% 70%, rgba(25, 9, 33, 0.6), rgba(10, 0, 15, 0.9) 80%);
