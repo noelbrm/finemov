@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+:root {
+    font-family: "Outfit", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+    background-image:
+            radial-gradient(circle at 40% 30%, rgba(36, 24, 42, 0.6), rgba(10, 0, 15, 1) 70%),
+            radial-gradient(circle at 70% 70%, rgba(25, 9, 33, 0.6), rgba(10, 0, 15, 0.9) 80%);
+    background-blend-mode: overlay;
+    background-attachment: fixed;
+
+
+}
+
+#root {
+
+}
+
+#Splace-screen {
+    background: #0a0014;
+    background-image: radial-gradient(circle at center, rgba(30, 20, 40, 0.3), rgba(10,0,15,1) 90%);
+
+}
+
+#title {
+    font-family: "Poiret One", sans-serif;
+    font-weight: 400;
+}
+
+#Welcome-text {
+    letter-spacing: 4px;
+    font-weight: bold;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 72px;
+    /*background: linear-gradient(45deg, rgb(140, 85, 250) 0%,rgb(200, 215, 253) 75%,rgb(143, 230, 243) 100%);*/
+    background: linear-gradient(
+            45deg,
+            rgb(170, 140, 220) 0%,
+            rgb(215, 225, 245) 75%,
+            rgb(185, 220, 225) 100%
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#movie-title {
+    background: linear-gradient(
+            90deg,
+            rgb(170, 140, 220) 0%,
+            rgb(215, 225, 245) 75%,
+            rgb(185, 220, 225) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#Recommendation-text {
+    letter-spacing: 4px;
+    font-weight: bold;
+    font-family: "Bebas Neue", sans-serif;
+    font-size:56px;
+    background: linear-gradient(
+            90deg,
+            rgb(170, 140, 220) 0%,
+            rgb(215, 225, 245) 75%,
+            rgb(185, 220, 225) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
