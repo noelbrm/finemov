@@ -96,7 +96,7 @@ function SwipeView({items, setItems, fetchMore}) {
                     onClick={handleDislike}
                     style={{transform: dislikeScale}}
                     className={`w-18 h-18 border-3 rounded-full flex justify-center items-center bg-gray-400/5 border-red-500/50
-                            hover:bg-red-500/10 hover:border-red-500 transition duration-150 hover:scale-110`}>
+                            hover:bg-red-500/10 hover:border-red-500 transition duration-150 hover:scale-120`}>
                     <img src={dislike} alt="Daumen runter" className={`w-9 h-9 opacity-60 transition duration-150`} />
                 </motion.button>
                 <motion.button
@@ -109,7 +109,7 @@ function SwipeView({items, setItems, fetchMore}) {
                     onClick={handleLike}
                     style={{transform: likeScale}}
                     className={`w-18 h-18 border-3 rounded-full flex justify-center items-center border-green-500/40 bg-gray-400/5
-                            hover:bg-green-500/10 hover:border-green-500 transition duration-150 hover:scale-110`}>
+                            hover:bg-green-500/10 hover:border-green-500 transition duration-150 hover:scale-120`}>
                     <img src={heart} alt="Daumen runter" className={`w-8 h-8 opacity-60 transition`} />
                 </motion.button>
             </div>
