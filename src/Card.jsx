@@ -14,9 +14,9 @@ function Card({movie, setLikeMovies, setDislikeMovies, isTop, dragxChange}) {
     const handleDragEnd = () => {
         const offset = x.get()
 
-        if (offset > 100) {
+        if (offset > 30) {
             setLikeMovies()
-        } else if (offset < -100) {
+        } else if (offset < -30) {
             setDislikeMovies()
         } else {
             x.set(0)

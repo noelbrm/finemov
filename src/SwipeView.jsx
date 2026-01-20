@@ -23,13 +23,13 @@ function SwipeView({items, setItems, fetchMore}) {
     const dislikeScale = useTransform(
         dragX,
         [-70, 0],
-        ["scale(1.1)", "scale(1)"]
+        ["scale(1.2)", "scale(1)"]
     );
 
     const likeScale = useTransform(
         dragX,
         [0, 70],
-        ["scale(1)", "scale(1.1)"]
+        ["scale(1)", "scale(1.2)"]
     );
 
 
