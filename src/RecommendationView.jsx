@@ -6,6 +6,7 @@ import RecommendCard from "./components/RecommendCard.jsx";
 import {FilterMovies} from "./utils/FilterMovies.js";
 import SelectedMovieView from "./components/SelectedMovieView.jsx";
 import {fetchAll} from "./api/fetchAll.js";
+import {topLikeDislike} from "./utils/topLikeDislike.js";
 
 function RecommendationView({like, dislike, onReset}) {
 
@@ -17,7 +18,7 @@ function RecommendationView({like, dislike, onReset}) {
     const recommendUrl = useRef("")
     const [empty, setEmpty] = useState(false)
     const [selectedMovie, setSelectedMovie] = useState(null);
-
+    const { topLike, topDislike } = topLikeDislike(like, dislike);
 
     useEffect(() => {
         async function loadData() {
@@ -71,6 +72,10 @@ function RecommendationView({like, dislike, onReset}) {
                     <h1 id={"Recommendation-text"}>
                         Movie Recommendations
                     </h1>
+                    <div className="text-white/60">
+                        <p>Liked genres: <span className="text-white font-light">{topLike.join(", ")}</span></p>
+                        <p>Disliked genres: <span className="text-white font-light">{topDislike.join(", ")}</span></p>
+                    </div>
                 </div>
                 <button className="my-6 px-10 py-2 rounded-2xl bg-black/80 border border-white/20 text-white text-sm cursor-pointer hover:bg-white/5" onClick={handleReset}>Reset</button>
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-5 md:grid-cols-3 lg:grid-cols-4 place-items-center">

@@ -18,15 +18,6 @@ export function buildDiscoverURL(movies, dislikedMovies, page) {
         movies.flatMap(m => m.genre_ids?.map(g => g.id) || [])
     );
 
-    const allDislikedGenreIds = new Set(
-        dislikedMovies.flatMap(m => m.genre_ids?.map(g => g.id) || [])
-    );
-
-    const pureHateGenreIds = [...allDislikedGenreIds].filter(
-        id => !likedGenreIds.has(id)
-    );
-    console.log(pureHateGenreIds)
-
     const dislikedGenreCount = {};
 
     dislikedMovies.forEach(movie => {

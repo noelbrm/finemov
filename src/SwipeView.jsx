@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import {motion, useMotionValue, useTransform } from "motion/react"
+import {motion, useMotionValue, useTransform, animate } from "motion/react"
 import Card from "./Card.jsx";
 import noEye from "./assets/eye-off.svg";
 import heart from "./assets/heart.svg";

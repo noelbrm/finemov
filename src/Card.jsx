@@ -25,7 +25,7 @@ function Card({movie, setLikeMovies, setDislikeMovies, isTop, dragxChange}) {
 
     return(
     <motion.div
-        className={`relative max-w-md rounded-lg hover:cursor-grab active:cursor-grabbing border border-white/2 overflow-hidden flex flex-col
+        className={`relative rounded-lg hover:cursor-grab active:cursor-grabbing border md:w-[350px] border-white/2 overflow-hidden flex flex-col
         ${isTop ? 'cursor-grab active:cursor-grabbing' : 'pointer-events-none'}`}
         style={
         {gridRow: 1,
