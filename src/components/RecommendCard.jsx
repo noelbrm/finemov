@@ -2,7 +2,7 @@ import React from "react";
 import star from "../assets/star-solid.svg"
 
 function RecommendCard({recommendMovie, onClick}) {
-
+    
     return(
         <div key={recommendMovie.id} className="rounded-2xl overflow-hidden border border-white/10 relative h-fit max-w-[300px] font-light hover:scale-103 hover:border-white/30 transition duration-150 cursor-pointer"
              onClick={() => onClick(recommendMovie)}>
@@ -26,7 +26,7 @@ function RecommendCard({recommendMovie, onClick}) {
                     </div>
                     <div className="">
                         <ul className="flex flex-row gap-2 flex-wrap justify-center">{recommendMovie.genres.map((g) =>
-                            <li className="px-2 py-1 text-white border border-white/20 rounded-2xl bg-white/10 h-fit text-xs">
+                            <li className="px-3 py-1 text-white border border-white/20 rounded-2xl bg-white/10 h-fit text-xs">
                                 {g.name}
                             </li>)}
                         </ul>

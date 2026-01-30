@@ -4,7 +4,7 @@ function SelectedMovieView({movie, onClose}) {
     return(
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-center items-center z-50 p-4">
             <div className="bg-black/80 text-white rounded-xl shadow-xl max-w-[500px] w-full p-6 relative overflow-y-auto max-h-[90vh]">
-                <h1 id={"movie-title"} className="text-4xl font-bold mb-4">{movie.title}</h1>
+                <h1 className="movie-title text-4xl font-bold mb-4">{movie.title}</h1>
                 <div className="flex flex-row justify-center gap-3 mb-4 text-white/60 text-sm font-light">
                     <p>{movie.year}</p>
                     <span>•</span>
@@ -16,7 +16,7 @@ function SelectedMovieView({movie, onClose}) {
                     {movie.genres.map((g) => (
                         <span
                             key={g.id}
-                            className="px-2 py-1 text-white border border-white/20 rounded-2xl bg-white/10 h-fit text-xs">
+                            className="px-3 py-1 text-white border border-white/20 rounded-2xl bg-white/10 h-fit text-xs">
                             {g.name}
                         </span>
                     ))}

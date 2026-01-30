@@ -1,7 +1,7 @@
 import React from "react";
-import heart from './assets/heart-green.svg'
-import dontlike from './assets/x-red.svg'
-import notseen from './assets/eye-off.svg'
+import heart from '../assets/heart-green.svg'
+import dontlike from '../assets/x-red.svg'
+import notseen from '../assets/eye-off.svg'
 
 function Header({like, dislike}) {
     let movieCount = (like.length + dislike.length) * 10
@@ -10,7 +10,7 @@ function Header({like, dislike}) {
         <header className="text-white">
             <div className="">
                 <div className="relative">
-                    <h1 id={`Welcome-text`} className="">Finemov<span className=""></span></h1>
+                    <h1 className="header-title">Finemov<span className=""></span></h1>
                 </div>
                 <div className="mb-2 flex flex-row justify-center items-center gap-1 font-light text-gray-300 text-sm">
                     <img src={heart} alt="" className="w-5 h-5 opacity-60" />

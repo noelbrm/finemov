@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import {motion, useMotionValue, useTransform, animate } from "motion/react"
-import Card from "./Card.jsx";
-import noEye from "./assets/eye-off.svg";
-import heart from "./assets/heart.svg";
-import dislike from "./assets/x.svg";
-import Header from "./Header.jsx";
+import Card from "../components/Card.jsx";
+import noEye from "../assets/eye-off.svg";
+import heart from "../assets/heart.svg";
+import dislike from "../assets/x.svg";
+import Header from "../components/Header.jsx";
 import RecommendationView from "./RecommendationView.jsx";
 
 

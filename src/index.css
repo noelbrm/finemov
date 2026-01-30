@@ -1,71 +1,66 @@
 @import "tailwindcss";
 
-:root {
-    font-family: "Outfit", sans-serif;
+@layer base {
+    html {
+        font-family: "Outfit", sans-serif;
+        min-height: 100%;
+        background-image: radial-gradient(
+                circle at 55% 45%,
+                rgba(37, 25, 42, 0.80) 0%,
+                rgba(18, 6, 24, 0.95) 60%,
+                rgb(10, 10, 15) 100%
+        );
+    }
+
+    body {
+        margin: 0;
+        padding: 1.5rem;
+        min-height: 100vh;
+        background: transparent;
+    }
 }
 
-.safe-area {
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-}
+@layer components {
+    .header-title {
+        letter-spacing: 4px;
+        font-weight: bold;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 72px;
+        background: linear-gradient(
+                45deg,
+                rgb(170, 140, 220) 0%,
+                rgb(215, 225, 245) 75%,
+                rgb(185, 220, 225) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 
-html {
-    background-color: #10011e;
-}
 
-body {
-  margin: 0;
-  min-height: 100vh;
-    background-image:
-            radial-gradient(circle at 40% 30%, rgba(36, 24, 42, 0.6), rgba(10, 0, 15, 1) 70%),
-            radial-gradient(circle at 70% 70%, rgba(25, 9, 33, 0.6), rgba(10, 0, 15, 0.9) 80%);
-    background-attachment: fixed;
-    background-blend-mode: overlay;
-}
 
-#title {
-    font-family: "Poiret One", sans-serif;
-    font-weight: 400;
-}
+    .movie-title {
+        background: linear-gradient(
+                90deg,
+                rgb(170, 140, 220) 0%,
+                rgb(215, 225, 245) 75%,
+                rgb(185, 220, 225) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 
-#Welcome-text {
-    letter-spacing: 4px;
-    font-weight: bold;
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 72px;
-    /*background: linear-gradient(45deg, rgb(140, 85, 250) 0%,rgb(200, 215, 253) 75%,rgb(143, 230, 243) 100%);*/
-    background: linear-gradient(
-            45deg,
-            rgb(170, 140, 220) 0%,
-            rgb(215, 225, 245) 75%,
-            rgb(185, 220, 225) 100%
-    );
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-#movie-title {
-    background: linear-gradient(
-            90deg,
-            rgb(170, 140, 220) 0%,
-            rgb(215, 225, 245) 75%,
-            rgb(185, 220, 225) 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-#Recommendation-text {
-    letter-spacing: 4px;
-    font-weight: bold;
-    font-family: "Bebas Neue", sans-serif;
-    font-size:46px;
-    background: linear-gradient(
-            90deg,
-            rgb(170, 140, 220) 0%,
-            rgb(215, 225, 245) 75%,
-            rgb(185, 220, 225) 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    .Recommendation-text {
+        letter-spacing: 4px;
+        font-weight: bold;
+        font-family: "Bebas Neue", sans-serif;
+        font-size:46px;
+        background: linear-gradient(
+                90deg,
+                rgb(170, 140, 220) 0%,
+                rgb(215, 225, 245) 75%,
+                rgb(185, 220, 225) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 }

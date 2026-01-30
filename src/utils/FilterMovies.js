@@ -3,5 +3,4 @@ export function FilterMovies(recommendSet, likeSet) {
         const isLiked = likeSet.some((l) => l.id === m.id);
         return !isLiked
     })
-
 }

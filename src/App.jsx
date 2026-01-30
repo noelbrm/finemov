@@ -1,6 +1,6 @@
 import './App.css'
 import React, {useEffect, useState, useRef} from "react";
-import SwipeView from "./SwipeView.jsx";
+import SwipeView from "./views/SwipeView.jsx";
 import {fetchAll} from "./api/fetchAll.js";
 
 
@@ -48,7 +48,7 @@ function App() {
 
     if (items.length > 0) {
         return(
-            <div className="flex justify-center items-center">
+            <div className="flex flex-col justify-center items-center text-center">
                 <SwipeView
                     items={items}
                     setItems={setItems}

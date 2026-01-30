@@ -35,14 +35,14 @@ export function buildDiscoverURL(movies, dislikedMovies, page) {
         .map(entry => entry[0]);
 
     const url =
-        `https://api.themoviedb.org/3/discover/movie?` +
-        `with_cast=${castIds}` +
-        `&with_crew=${directorIds}` +
-        `&with_genres=${genreIds}` +
-        `&without_genres=${top3HatedGenres}` +
-        `&primary_release_date.lte=${today}` +
-        `&page=${page}` +
-        `&sort_by=popularity.desc`;
+        `https://api.themoviedb.org/3/discover/movie?
+        with_cast=${castIds}
+        &with_crew=${directorIds}
+        &with_genres=${genreIds}
+        &without_genres=${top3HatedGenres}
+        &primary_release_date.lte=${today}
+        &page=${page}
+        &sort_by=popularity.desc`;
 
     return url;
 }

@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { motion, useMotionValue, useTransform, useMotionValueEvent } from "framer-motion";
+import { motion, useMotionValue, useTransform, useMotionValueEvent } from "motion/react";
 
 function Card({movie, setLikeMovies, setDislikeMovies, isTop, dragxChange}) {
     const x = useMotionValue(0);
@@ -44,12 +43,9 @@ function Card({movie, setLikeMovies, setDislikeMovies, isTop, dragxChange}) {
             className="pointer-events-none"
         />
         <div className={`p-5 flex flex-col justify-end absolute bottom-0 bg-gradient-to-b from-transparent to-black w-full h-1/3`}>
-            <div className={"text-white text-xl"}>
-                {/* TITLE?*/}
-            </div>
             <div>
                 <ul className="flex flex-row gap-2 flex-wrap">{movie.genre_ids.map((g) =>
-                    <li className="px-2 py-1 text-white border border-white/20 rounded-2xl bg-black/30 text-sm h-fit">
+                    <li className="px-3 py-1 text-white border border-white/20 rounded-2xl bg-black/30 text-sm md:text-base h-fit">
                         {g.name}
                     </li>)}
                 </ul>

@@ -1,16 +1,14 @@
 import React, {useEffect, useRef, useState} from "react";
-import {fetchFullMovieData} from "./api/fetchLikeMovieData.js";
-import {buildDiscoverURL} from "./utils/buildDiscoverURL.js"
-import spinner from "./assets/180-ring.svg"
-import RecommendCard from "./components/RecommendCard.jsx";
-import {FilterMovies} from "./utils/FilterMovies.js";
-import SelectedMovieView from "./components/SelectedMovieView.jsx";
-import {fetchAll} from "./api/fetchAll.js";
-import {topLikeDislike} from "./utils/topLikeDislike.js";
+import {fetchFullMovieData} from "../api/fetchLikeMovieData.js";
+import {buildDiscoverURL} from "../utils/buildDiscoverURL.js"
+import spinner from "../assets/180-ring.svg"
+import RecommendCard from "../components/RecommendCard.jsx";
+import {FilterMovies} from "../utils/FilterMovies.js";
+import SelectedMovieView from "./SelectedMovieView.jsx";
+import {fetchAll} from "../api/fetchAll.js";
+import {topLikeDislike} from "../utils/topLikeDislike.js";
 
 function RecommendationView({like, dislike, onReset}) {
-
-    const [fullInfo, setFullInfo] = useState([])
     const [page, setPage] = useState(1);
     const [recommendations, setRecommendations] = useState([])
     const [recommendationsFull, setFullRecommendations] = useState([])
@@ -28,9 +26,7 @@ function RecommendationView({like, dislike, onReset}) {
                     return { ...m, ...full };
                 }
             ));
-            setFullInfo(movieData);
             recommendUrl.current = buildDiscoverURL(movieData, dislike, page);
-            console.log(recommendUrl.current)
             const { results } = await fetchAll(recommendUrl.current);
             if (results.length === 0) setEmpty(true)
             setRecommendations((r) => [...r, ...FilterMovies(results, like)]);
@@ -67,9 +63,9 @@ function RecommendationView({like, dislike, onReset}) {
         );
     }
         return(
-            <div className="">
-                <div className="">
-                    <h1 id={"Recommendation-text"}>
+            <>
+                <div>
+                    <h1 className="Recommendation-text">
                         Movie Recommendations
                     </h1>
                     <div className="text-white/60">
@@ -95,7 +91,7 @@ function RecommendationView({like, dislike, onReset}) {
                     />
                 )}
 
-            </div>
+            </>
         );
 
 
