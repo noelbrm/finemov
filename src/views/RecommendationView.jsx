@@ -12,7 +12,6 @@ function RecommendationView({like, dislike, onReset}) {
     const [page, setPage] = useState(1);
     const [recommendations, setRecommendations] = useState([])
     const [recommendationsFull, setFullRecommendations] = useState([])
-    const [loading, setLoading] = useState(true);
     const recommendUrl = useRef("")
     const [empty, setEmpty] = useState(false)
     const [selectedMovie, setSelectedMovie] = useState(null);
@@ -30,9 +29,8 @@ function RecommendationView({like, dislike, onReset}) {
             const { results } = await fetchAll(recommendUrl.current);
             if (results.length === 0) setEmpty(true)
             setRecommendations((r) => [...r, ...FilterMovies(results, like)]);
-            setLoading(false);
         }
-        loadData();
+        loadData().then();
 
     }, [like, dislike, page]);
 
@@ -46,19 +44,18 @@ function RecommendationView({like, dislike, onReset}) {
             setFullRecommendations(fullData);
         }
 
-        loadFullData();
+        loadFullData().then();
     }, [recommendations]);
 
     const handleReset = () => {
         onReset()
     }
 
-
-    if (loading) {
+    if (recommendationsFull.length < 1) {
         return (
             <div className="flex flex-col justify-center items-center">
                 <p className="text-white p-5">Loading...</p>
-                <img src={spinner} alt="Daumen runter" className={``} />
+                <img src={spinner} alt="loading spinner"/>
             </div>
         );
     }

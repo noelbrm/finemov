@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useTransform, useMotionValueEvent } from "motion/react";
+import { motion as Motion, useMotionValue, useTransform, useMotionValueEvent } from "motion/react";
 
 function Card({movie, setLikeMovies, setDislikeMovies, isTop, dragxChange}) {
     const x = useMotionValue(0);
@@ -23,7 +23,7 @@ function Card({movie, setLikeMovies, setDislikeMovies, isTop, dragxChange}) {
     };
 
     return(
-    <motion.div
+    <Motion.div
         className={`relative rounded-lg hover:cursor-grab active:cursor-grabbing border md:w-[350px] border-white/2 overflow-hidden flex flex-col
         ${isTop ? 'cursor-grab active:cursor-grabbing' : 'pointer-events-none'}`}
         style={
@@ -45,13 +45,13 @@ function Card({movie, setLikeMovies, setDislikeMovies, isTop, dragxChange}) {
         <div className={`p-5 flex flex-col justify-end absolute bottom-0 bg-gradient-to-b from-transparent to-black w-full h-1/3`}>
             <div>
                 <ul className="flex flex-row gap-2 flex-wrap">{movie.genre_ids.map((g) =>
-                    <li className="px-3 py-1 text-white border border-white/20 rounded-2xl bg-black/30 text-sm md:text-base h-fit">
+                    <li key={g.id} className="px-3 py-1 text-white border border-white/20 rounded-2xl bg-black/30 text-sm md:text-base h-fit">
                         {g.name}
                     </li>)}
                 </ul>
             </div>
         </div>
-    </motion.div>);
+    </Motion.div>);
 }
 
 export default Card

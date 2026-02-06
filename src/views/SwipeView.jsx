@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import {motion, useMotionValue, useTransform, animate } from "motion/react"
+import {motion as Motion, useMotionValue, useTransform } from "motion/react"
 import Card from "../components/Card.jsx";
 import noEye from "../assets/eye-off.svg";
 import heart from "../assets/heart.svg";
@@ -11,7 +11,7 @@ import RecommendationView from "./RecommendationView.jsx";
 function SwipeView({items, setItems, fetchMore}) {
     const [likeMovie, setLikeMovie] = useState([])
     const [dislikeMovie, setDislikeMovie] = useState([])
-    const [unknownMovie, setUnkownMovie] = useState([])
+    const [UnknownMovie, setUnkownMovie] = useState([])
     const dragX = useMotionValue(0)
     const count = useRef(0);
 
@@ -92,26 +92,26 @@ function SwipeView({items, setItems, fetchMore}) {
                 })}
             </div>
             <div className="p-6 flex flex-row justify-center gap-10 items-center">
-                <motion.button
+                <Motion.button
                     onClick={handleDislike}
                     style={{transform: dislikeScale}}
                     className={`w-18 h-18 border-3 rounded-full flex justify-center items-center bg-gray-400/5 border-red-500/50
                             hover:bg-red-500/10 hover:border-red-500 transition duration-150 hover:scale-120`}>
-                    <img src={dislike} alt="Daumen runter" className={`w-9 h-9 opacity-60 transition duration-150`} />
-                </motion.button>
-                <motion.button
+                    <img src={dislike} alt="down vote" className={`w-9 h-9 opacity-60 transition duration-150`} />
+                </Motion.button>
+                <Motion.button
                     onClick={handleUnknown}
                     className="group w-16 h-16 border-3 bg-gray-400/5 border-white/40 rounded-full flex justify-center items-center
             hover:bg-black/20 hover:border-white/60 transition duration-150 hover:scale-110">
-                    <img src={noEye} alt="Daumen runter" className="w-7 h-7 opacity-60 transition duration-150" />
-                </motion.button>
-                <motion.button
+                    <img src={noEye} alt="neutral vote" className="w-7 h-7 opacity-60 transition duration-150" />
+                </Motion.button>
+                <Motion.button
                     onClick={handleLike}
                     style={{transform: likeScale}}
                     className={`w-18 h-18 border-3 rounded-full flex justify-center items-center border-green-500/40 bg-gray-400/5
                             hover:bg-green-500/10 hover:border-green-500 transition duration-150 hover:scale-120`}>
-                    <img src={heart} alt="Daumen runter" className={`w-8 h-8 opacity-60 transition`} />
-                </motion.button>
+                    <img src={heart} alt="up vote" className={`w-8 h-8 opacity-60 transition`} />
+                </Motion.button>
             </div>
         </div>
     );

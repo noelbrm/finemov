@@ -32,17 +32,8 @@ export function buildDiscoverURL(movies, dislikedMovies, page) {
     const top3HatedGenres = Object.entries(dislikedGenreCount)
         .sort((a, b) => b[1] - a[1])
         .slice(0, 3)
-        .map(entry => entry[0]);
+        .map(entry => entry[0])
+        .join("|");
 
-    const url =
-        `https://api.themoviedb.org/3/discover/movie?
-        with_cast=${castIds}
-        &with_crew=${directorIds}
-        &with_genres=${genreIds}
-        &without_genres=${top3HatedGenres}
-        &primary_release_date.lte=${today}
-        &page=${page}
-        &sort_by=popularity.desc`;
-
-    return url;
+    return `https://api.themoviedb.org/3/discover/movie?with_cast=${castIds}&with_crew=${directorIds}&with_genres=${genreIds}&without_genres=${top3HatedGenres}&primary_release_date.lte=${today}&page=${page}&sort_by=popularity.desc`;
 }
