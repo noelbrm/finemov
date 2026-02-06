@@ -7,7 +7,7 @@ By liking and disliking popular movies, the app generates personalized movie rec
 
 👉 Try it here: https://finemov.netlify.app
 
-## Demo
+## Demo GIF
 ![finemov demo](src/assets/finemov-demo.gif)
 
 
@@ -32,7 +32,7 @@ By liking and disliking popular movies, the app generates personalized movie rec
 Run the project locally with `netlify dev`.
 
 ```bash
-git clone <https://github.com/noelbrm/finemov.git>
+git clone https://github.com/noelbrm/finemov.git
 cd finemov
 npm install
 netlify dev
