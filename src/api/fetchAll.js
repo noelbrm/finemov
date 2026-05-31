@@ -1,17 +1,22 @@
 export async function fetchAll(url) {
-    try {
-        const encodedUrl = encodeURIComponent(url);
+    const encodedUrl = encodeURIComponent(url);
 
-        const res = await fetch(
-            `/.netlify/functions/fetch-data?url=${encodedUrl}`
-        );
+    const res = await fetch(
+        `/.netlify/functions/fetch-data?url=${encodedUrl}`
+    );
 
-        if (!res.ok) {
-            throw new Error("Fetch failed");
+    if (!res.ok) {
+        let message = "Fetch failed";
+
+        try {
+            const data = await res.json();
+            message = data?.error || message;
+        } catch {
+            message = `${message} with status ${res.status}`;
         }
 
-        return await res.json();
-    } catch (err) {
-        console.error(err);
+        throw new Error(message);
     }
+
+    return await res.json();
 }

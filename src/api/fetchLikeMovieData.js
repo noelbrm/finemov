@@ -7,9 +7,9 @@ export async function fetchFullMovieData(movieId) {
         fetchAll(`https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`)
     ]);
 
-    const director = credits.crew.find(c => c.job === "Director");
+    const director = credits?.crew?.find(c => c.job === "Director");
 
-    const cast = credits.cast
+    const cast = (credits?.cast ?? [])
         .slice(0, 5)
         .map(actor => ({
             id: actor.id,
@@ -17,21 +17,21 @@ export async function fetchFullMovieData(movieId) {
             character: actor.character
         }));
 
-    const year = details.release_date.split("-")[0]
+    const year = details?.release_date?.split("-")[0] || "Unknown";
 
     return {
-        release_date: details.release_date,
-        runtime: details.runtime,
+        release_date: details?.release_date || "",
+        runtime: details?.runtime || 0,
         director_id: director?.id || null,
         director_name: director?.name || "Unknown",
         cast: cast,
-        vote_average: details.vote_average,
-        poster_path: details.poster_path,
-        title: details.title,
+        vote_average: details?.vote_average || 0,
+        poster_path: details?.poster_path || null,
+        title: details?.title || "Untitled",
         year: year,
-        overview: details.overview,
-        genres: details.genres,
-        imdb_id: details.imdb_id,
-        tagline: details.tagline
+        overview: details?.overview || "",
+        genres: details?.genres || [],
+        imdb_id: details?.imdb_id || "",
+        tagline: details?.tagline || ""
     };
 }

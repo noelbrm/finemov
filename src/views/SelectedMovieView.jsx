@@ -1,22 +1,24 @@
+function SelectedMovieView({ movie, onClose }) {
+    const imdbUrl = movie.imdb_id ? `https://www.imdb.com/title/${movie.imdb_id}` : null;
+    const youtubeUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(`${movie.title} Intro`)}`;
 
-function SelectedMovieView({movie, onClose}) {
-
-    return(
+    return (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-center items-center z-50 p-4">
             <div className="bg-black/80 text-white rounded-xl shadow-xl max-w-[500px] w-full p-6 relative overflow-y-auto max-h-[90vh]">
                 <h1 className="movie-title text-4xl font-bold mb-4">{movie.title}</h1>
                 <div className="flex flex-row justify-center gap-3 mb-4 text-white/60 text-sm font-light">
                     <p>{movie.year}</p>
-                    <span>•</span>
+                    <span>-</span>
                     <p>Director: {movie.director_name}</p>
-                    <span>•</span>
+                    <span>-</span>
                     <span>Runtime: {Math.floor(movie.runtime / 60)}h {movie.runtime % 60}m</span>
                 </div>
                 <div className="flex flex-wrap gap-2 mb-4 justify-center">
                     {movie.genres.map((g) => (
                         <span
                             key={g.id}
-                            className="px-3 py-1 text-white border border-white/20 rounded-2xl bg-white/10 h-fit text-xs">
+                            className="px-3 py-1 text-white border border-white/20 rounded-2xl bg-white/10 h-fit text-xs"
+                        >
                             {g.name}
                         </span>
                     ))}
@@ -39,21 +41,35 @@ function SelectedMovieView({movie, onClose}) {
                     </div>
                 )}
                 <div className="flex justify-center gap-3">
+                    {imdbUrl && (
+                        <a
+                            className="px-4 py-2 bg-[#f3ce13] hover:bg-[#C2A30A] text-black rounded-2xl cursor-pointer border border-white/20 font-semibold"
+                            href={imdbUrl}
+                            rel="noreferrer"
+                            target="_blank"
+                        >
+                            Open on IMDb
+                        </a>
+                    )}
+                    <a
+                        className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-2xl cursor-pointer border border-white/20 font-semibold"
+                        href={youtubeUrl}
+                        rel="noreferrer"
+                        target="_blank"
+                    >
+                        Search intro on YouTube
+                    </a>
                     <button
                         onClick={onClose}
-                        className="px-4 py-2 bg-[#f3ce13] hover:bg-[#C2A30A] text-black rounded-2xl cursor-pointer border border-white/20 font-semibold">
-                        <a target="_blank" href={`https://www.imdb.com/title/${movie.imdb_id}`}>Open on IMDb</a>
-                    </button>
-                    <button
-                        onClick={onClose}
-                        className="px-4 py-2 bg-black/80 hover:bg-white/5 hotext-white rounded-2xl cursor-pointer border border-white/20">
+                        className="px-4 py-2 bg-black/80 hover:bg-white/5 text-white rounded-2xl cursor-pointer border border-white/20"
+                        type="button"
+                    >
                         Close
                     </button>
                 </div>
             </div>
         </div>
     );
-
 }
 
-export default SelectedMovieView
+export default SelectedMovieView;

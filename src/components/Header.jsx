@@ -3,8 +3,8 @@ import heart from '../assets/heart-green.svg'
 import dontlike from '../assets/x-red.svg'
 import notseen from '../assets/eye-off.svg'
 
-function Header({like, dislike}) {
-    let movieCount = (like.length + dislike.length) * 10
+function Header({movieCount}) {
+    const progress = movieCount * 10;
 
     return(
         <header className="text-white">
@@ -21,10 +21,10 @@ function Header({like, dislike}) {
                     <p className="">Not seen</p>
                 </div>
             </div>
-            <p className="font-light">{`${like.length + dislike.length}/10 Movies`}</p>
+            <p className="font-light">{`${movieCount}/10 Movies`}</p>
             <div className="w-full h-2 bg-[#171717] border border-black/10 rounded-lg mb-5 mt-3 overflow-hidden">
                 <div className={`bg-gradient-to-r from-purple-400 to-pink-400 h-full transition-all 200`}
-                style={{ width: `${Math.min(movieCount, 100)}%` }}>
+                style={{ width: `${Math.min(progress, 100)}%` }}>
                 </div>
             </div>
         </header>
