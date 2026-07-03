@@ -5,6 +5,7 @@
     html {
         font-family: "Outfit", sans-serif;
         min-height: 100%;
+        background-color: rgb(10, 10, 15);
         background-image: radial-gradient(
                 circle at 55% 45%,
                 rgba(28, 18, 30, 0.8) 0%,
@@ -13,11 +14,21 @@
         );
     }
 
+    body,
+    #root {
+        min-height: 100%;
+    }
+
     body {
         margin: 0;
-        padding: 1.5rem;
         min-height: 100vh;
-        background: transparent;
+        min-height: 100dvh;
+        padding-top: calc(env(safe-area-inset-top) + 1.5rem);
+        padding-right: calc(env(safe-area-inset-right) + 1.5rem);
+        padding-bottom: calc(env(safe-area-inset-bottom) + 1.5rem);
+        padding-left: calc(env(safe-area-inset-left) + 1.5rem);
+        background-color: inherit;
+        background-image: inherit;
     }
 }
 
